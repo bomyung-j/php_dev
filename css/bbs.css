@@ -1,0 +1,17 @@
+table{
+  border : 1px solid black;
+  /*width :400px;*/
+  align : center;
+}
+thead{
+    border-bottom : 2px solid black;
+  
+}
+td{
+  /* border : 1px solid gray; */
+  text-align : center;
+}
+b{
+    color : black;
+  
+}

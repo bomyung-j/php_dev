@@ -1,0 +1,22 @@
+#container{
+    display : flex;
+}
+#box-left{
+    background : red;
+    flex : 1;
+}
+#box-center{
+    /* background-color : white; */
+    flex : 4;
+    text-align : center;
+    border : 1px solid black;
+    min-height : 800px;
+    
+}
+#box-right{
+    background : orange;
+    flex : 1;
+    text-align : right;
+    
+}
+
