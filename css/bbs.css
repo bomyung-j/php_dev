@@ -1,11 +1,13 @@
 table{
   border : 1px solid black;
+  margin-left : 5%;
+  margin-right : 5%;
   /*width :400px;*/
   align : center;
 }
 thead{
     border-bottom : 2px solid black;
-  
+    background : rgba(0,0,200,0.6);
 }
 td{
   /* border : 1px solid gray; */

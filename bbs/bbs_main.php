@@ -40,7 +40,7 @@
      우측
   </div>
   <div id="box-center">
-    <a href="/bbs/bbs_main?bbs=<?=$table?>"><b><?=request_bbs($table)?></b></a>
+    <a href="/bbs/bbs_main.php?bbs=<?=$table?>"><b><?=request_bbs($table)?></b></a>
     <table id ="bbs-table" class="table table-hover">
       <thead>
         <tr>
