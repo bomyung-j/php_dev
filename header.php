@@ -77,8 +77,11 @@ ini_set('display_errors',0);
   
 </div><!-- 회원가입로그인 div 끝 -->
 <br><br>
-<center><a href="/index.php"><img src="/img/logo.png" style="width : 140px; height : 60px;"></a></center></p><br>
 
+<!-- 로고 -->
+<center><a href="/index.php"><img src="/img/logo.png" style="width : 200px; height : 80px;"></a></center></p><br>
+
+<!-- gnb항목 -->
 <div class ="gnb">
   <div id = "gnb-content">
     <a class ="gnb-link" href="/bbs/bbs_main.php?bbs=bbs_notice">&nbsp;공지사항&nbsp;</a>&nbsp;&nbsp;
