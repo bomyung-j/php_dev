@@ -3,20 +3,20 @@
 }
 #box-left{
     /* background : red; */
-    flex : 1;
+    flex : 1.5;
 }
 #box-center{
     /* background-color : white; */
     text-align : center;
     /* padding-left:5%; */
-    flex : 4;
+    flex : 7;
     border : 1px solid black;
     min-height : 800px;
     
 }
 #box-right{
     /* background : orange; */
-    flex : 1;
+    flex : 1.5;
     text-align : right;
     
 }

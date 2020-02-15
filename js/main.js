@@ -1,10 +1,12 @@
 // 문서가 시작되면 세션 체크 및 전역변수 선언
 $(document).ready(function(){
+  //중복체크를 위한 플래그
   id_overlap_check = false;
   name_overlap_check = false;
   mail_overlap_check = false;
+  
+  
   var session_value = document.getElementById('session_id').innerHTML;
-
   if(session_value != ""){
     console.log("세션 있음");
     session_check();
@@ -13,6 +15,8 @@ $(document).ready(function(){
   }
 
 });
+
+
 
 //ajax 통신에 사용될 데이터값을 전달하는 용도의 객체
 //공백값 체크 및 값 전달 div의 display 상태로 어떤 값을 전달할지 판별
@@ -171,8 +175,8 @@ function modal_login_signup(element){
         else if(element.id == "modal_signup"){
           console.log("회원가입 진행중");
           if(value == "1"){
-            msg("회원가입이 정상적으로 처리되었습니다.");
-            var open_login = {id : "login_button"};
+            msg("회원가입이 정상적으로 처리되었습니다. 이메일 인증을 해주세요.");
+            var open_login = {id : "login_button"};// k : v로 객체생성후 전달
             modal_on(open_login);
           }
 

@@ -21,6 +21,9 @@ ini_set('display_errors',0);
 <body>
 
   <div id="header-top">
+    
+    <button style ="float : left; width : 200px" class = "btn btn-danger" type="button" onclick="location.href('/introduce.php')">소개페이지</button>
+
 <!-- 세션활성화시 div -->
     <div id ="session_layer">
         <b id = "session_id"><?= request_session();?></b>
@@ -29,9 +32,11 @@ ini_set('display_errors',0);
           <button class = "btn btn-primary" type="button" onclick="location.href('/member/mypage.php')">마이페이지</button>
         </form>
       </div>
+      
     </div>
 
 <!-- 로그인 회원가입 버튼-->
+
     <div id = "button_layer">
       <button class = "btn btn-primary" id = "login_button" type="button" onclick ="modal_on(this)">로그인</button>
       <button class = "btn btn-primary" id = "signup_button" type="button" onclick ="modal_on(this)">회원가입</button>
