@@ -14,7 +14,7 @@
       function member_check($attr,$var)
       {
           try{
-              $query = $this->db->prepare("select pw, name from member where {$attr} = :var ");
+              $query = $this->db->prepare("select id, pw, name from member where {$attr} = :var ");
               $query->bindValue(":var",$var,PDO::PARAM_STR);
               $query->execute();
               $result = $query->fetch(PDO::FETCH_ASSOC);
@@ -51,6 +51,16 @@
               exit($e->getMessage());
           }
           return $result;
+      }
+      function password_ini($pw,$attr,$var){
+          try{
+            $query = $this->db->prepare("update member set pw = :pw where {$attr} = :var");
+            $query->bindValue(":pw",$pw,PDO::PARAM_STR);
+            $query->bindValue(":var",$var,PDO::PARAM_STR);
+            $query->execute();
+          }catch(PDOException $e){
+              exit($e->getMessage());
+          }
       }
       function mypage_bbs_print($name){
           try{

@@ -51,19 +51,22 @@ ini_set('display_errors',0);
   
   <!-- 로그인 div -->
   <div id="modal_layer_login">
+    <center><b style="font-size : 40px;">Login</b></center>
+    <br>
     <form>
       id : <input type="text" id="pid"><br>
       pw : <input type="password" id="ppwd">
-
     </form>
-    <button type="button" id="modal_login" onclick="modal_login_signup(this)">확인</button>
-    <button type="button" onclick ="modal_off(this)">닫기</button>
+    
+      <button type="button" id="modal_login" onclick="modal_login_signup(this)">확인</button>
+      <button type="button" onclick ="modal_off(this)">닫기</button>
   </div>
 
   <!-- 회원가입 div -->
   <div id="modal_layer_signup">
-    <b>Sign up</b>
-    <form>
+      <center><b style="font-size : 40px;">Sign up</b></center>
+      <br><br>
+    <form style ="font-size : 20px;">
       name :  <input type="text" id="signname" onblur="modal_login_signup(this)" placeholder = "한/영 3글자 이상 입력">&nbsp;<span id="name_overlap_check_tag"></span><br>
       id : <input type="text" id="signid" onblur="modal_login_signup(this)"  placeholder ="영문 4글자 이상 입력"> &nbsp;<span id="id_overlap_check_tag"></span>
       <span id ="overlap_check_value"></span>
@@ -71,8 +74,10 @@ ini_set('display_errors',0);
       pw : <input type="password" id="signpwd" placeholder ="특수문자 포함 8자리 이상">&nbsp;<span id="pw_overlap_check_tag"></span><br>
       mail : <input type="text" id="signmail" onblur ="modal_login_signup(this)" placeholder = "ex) admin@naver.com">&nbsp;<span id="mail_overlap_check_tag"></span><br>
     </form>
-    <button type="button" id="modal_signup" onclick="modal_login_signup(this)">확인</button>
-    <button type="button" onclick ="modal_off(this)">닫기</button>
+  
+      <button type="button" id="modal_signup" onclick="modal_login_signup(this)">확인</button>
+      <button type="button" onclick ="modal_off(this)">닫기</button>
+    
   </div>
   
 </div><!-- 회원가입로그인 div 끝 -->

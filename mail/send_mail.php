@@ -1,15 +1,17 @@
 
 <?php
 
-function send_mail($to_mail,$msg,$id){
+function send_mail($to_mail,$msg,$name){
     
   require_once("class.phpmailer.php");
 
   $mail=new PHPMailer(true);
+
   $title = "제목";
   $from_mail="보낼 메일명";
   $pass="메일비밀번호";
   $smtp="smtp서버주소";	
+
   
   try{
     		

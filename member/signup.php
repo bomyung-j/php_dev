@@ -21,7 +21,7 @@
 try{
   $db->signup($signid,$signpwd,$signname,$signmail);
   $msg = "이메일 인증번호 입니다.test1<br> http://localhost";
-  send_mail($signmail,$msg,$signid);
+  send_mail($signmail,$msg,$signame);
 }catch(Exception $e){
   echo(json_encode(array("value" => "0","flag" => "signup")));
 }

@@ -44,7 +44,7 @@ var type_check = function(element){
     signid = document.getElementById('signid').value;
     console.log(element.innerHTML);
     
-    if(regular_expression(element) == true && signid){
+    if(regular_expression(signid,"id") == true && signid){
       return{
         objdata : {"id" : signid, "type" : "id_overlap_check"},
         page : "member_check.php"
@@ -57,7 +57,7 @@ var type_check = function(element){
   //이름 중복체크를 시도할 경우
   else if(element.id =="signname"){
       signname = document.getElementById('signname').value;
-      if(signname && regular_expression(element) == true){
+      if(signname && regular_expression(signname,"name") == true){
         return {
             objdata : {"name" : signname, "type" : "name_overlap_check"},
             page : "member_check.php"
@@ -71,7 +71,7 @@ var type_check = function(element){
       console.log('메일 중복시도중');
       signmail = document.getElementById('signmail').value;
       console.log(signmail);
-      if(signmail && regular_expression(element) == true){
+      if(signmail && regular_expression(signmail,"mail") == true){
         return {
           objdata : {"mail" : signmail, "type" : "mail_overlap_check"},
           page : "member_check.php"
