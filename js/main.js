@@ -4,8 +4,8 @@ $(document).ready(function(){
   id_overlap_check = false;
   name_overlap_check = false;
   mail_overlap_check = false;
-  
-  
+  pwd_overlap_check = false;
+
   var session_value = document.getElementById('session_id').innerHTML;
   if(session_value != ""){
     console.log("세션 있음");
@@ -43,7 +43,7 @@ var type_check = function(element){
     console.log("아이디중복체크 시도하는중");
     signid = document.getElementById('signid').value;
     console.log(element.innerHTML);
-    
+
     if(regular_expression(signid,"id") == true && signid){
       return{
         objdata : {"id" : signid, "type" : "id_overlap_check"},
@@ -66,6 +66,19 @@ var type_check = function(element){
           document.getElementById('name_overlap_check_tag').innerHTML ="공백이나 특수문자가 들어갔습니다.";
       }
   }
+  //패스워드 정규식 확인
+  else if(element.id == "signpwd"){
+    console.log('비밀번호 정규식확인');
+    var pw_boolean = regular_expression(element.value,"password");
+    console.log(pw_boolean);
+    if(pw_boolean == true){
+        pwd_overlap_check = true;
+        document.getElementById('pw_overlap_check_tag').innerHTML ="사용가능한 비밀번호입니다.";
+    }else{
+        document.getElementById('pw_overlap_check_tag').innerHTML ="비밀번호는 8 ~ 16자리로 이루어 져야합니다.";
+    }
+
+  }
   //메일 중복체크를 시도할 경우
   else if(element.id =="signmail"){
       console.log('메일 중복시도중');
@@ -87,7 +100,7 @@ var type_check = function(element){
     signid = document.getElementById('signid').value;
     signpwd = document.getElementById('signpwd').value;
     signmail = document.getElementById('signmail').value;
-    if(id_overlap_check != true || name_overlap_check != true || mail_overlap_check != true){
+    if(id_overlap_check != true || name_overlap_check != true || mail_overlap_check != true || pwd_overlap_check != true){
       msg('중복체크가 되지 않았습니다.');
     }
     else if(!signname || !signid || !signpwd || !signmail){
@@ -188,7 +201,7 @@ function modal_login_signup(element){
             document.getElementById('id_overlap_check_tag').innerHTML = "사용 가능한 아이디 입니다.";
             id_overlap_check = true;
             console.log('성공');
-      
+
           }else{
             document.getElementById('id_overlap_check_tag').innerHTML = "이미 사용 중인 아이디 입니다.";
             id_overlap_check = false;
@@ -228,7 +241,7 @@ function session_check(){
   document.getElementById("button_layer").style.display = "none";
   document.getElementById("modal_layer").style.display = "none";
   document.getElementById("logout_form").style.display ="inline";
-  
+
   var session = document.getElementById("session_id").innerHTML;
   document.getElementById("session_id").innerHTML = session + " 님 환영합니다!";
 }
