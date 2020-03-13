@@ -25,7 +25,7 @@
     $db->password_ini($tp_pw,"mail",$mail); //비밀번호 업데이트
   }
   send_mail($mail,$msg,$result['name']); //메일 전송 
-  msg_movepg('정상 처리 되었습니다.',"/unset.php"); //메세지 전송
+  msg_locate('정상 처리 되었습니다.',"/unset.php"); //메세지 전송
 
   
 ?>

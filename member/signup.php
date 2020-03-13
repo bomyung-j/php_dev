@@ -20,8 +20,8 @@
   $db = new pdo_member();
 try{
   $db->signup($signid,$signpwd,$signname,$signmail);
-  $msg = "이메일 인증번호 입니다.test1<br> http://localhost";
-  send_mail($signmail,$msg,$signame);
+  $msg = "이메일 회원가입을 축하합니다. http://15.164.162.105/";
+  send_mail($signmail,$msg,$signname);
 }catch(Exception $e){
   echo(json_encode(array("value" => "0","flag" => "signup")));
 }

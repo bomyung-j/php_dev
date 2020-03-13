@@ -1,0 +1,20 @@
+.bbs-write-inner-style{
+  text-align : left;
+}
+tr{
+  border : 1px solid : black;
+  background : rgba(30,30,30,0.3);
+  font-weight : bold;
+}
+textarea{
+    width : 100%;
+    height : 500px;
+}
+select{
+  height : 30px;
+  width : 250px;
+}
+input{
+  height : 30px;
+  width : 250px;
+}

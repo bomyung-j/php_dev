@@ -1,24 +1,23 @@
 <?php
+$root = $_SERVER['DOCUMENT_ROOT'];
+require_once("{$root}/bbs/pdo_bbs.php");
+require_once("{$root}/tools.php");
+session_check();
 
-  require_once("pdo_bbs.php");
-  require_once("../tools.php");
-  $bbs_table = $_POST['bbs_table'];
-  $name = $_POST['name'];
-  $title = trim($_POST['title']);
-  $content = $_POST['content'];
-//  $prepage = $_SERVER['HTTP_REFERER']; //이전페이지
-  // print_r($_POST);
-  // echo "<br>";
-  // echo $_POST['bbs_table'];
-  //if(preg_replace("/\s+/", "", $title) == ""){
+$bbs_table = $_POST['bbs'];
+$name = $_POST['name'];
+$title = trim($_POST['title']);
+$content = $_POST['content'];
 
-  //앞뒤공백을 제거한 제목이 아무것도 없는 값이 들어올 경우
-  if($title == ""){
-    msg_backpg("제목을 입력하세요");
-  }else{
-  $db = new pdo_bbs();
-  $db->write_bbs($bbs_table,$name,$title,$content,0);
-  header("location: bbs_main.php?bbs={$bbs_table}");
+if($_SERVER['REQUEST_METHOD'] != 'POST' || request_session() != $name){
+  msg_backpg("적절하지 못한 값이 들어왔습니다.");
+}
+if($title == "" || trim($content) == ""){
+  msg_backpg("공백 값이 들어왔습니다.");
+}else{
+$db = new pdo_bbs();
+$db->write_bbs($bbs_table,$name,$title,$content,0);
+header("location: /bbs/bbs_main.php?bbs={$bbs_table}");
 }
 
 

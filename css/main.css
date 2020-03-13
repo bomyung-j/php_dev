@@ -1,14 +1,17 @@
 #modal_layer_login{
     text-align : center;
-    background-color : rgba(255,50,50,1);
-    border:1px solid : black;
+    /* background-color : rgba(255,50,50,1); */
+
+    background-color: white;
+    border : 1px solid black;
+    box-shadow : 10px 10px 10px grey;
     position : fixed;
     top : 50%;
     left : 50%;
     overflow : hidden;
     width : 400px;
-    height : 500px;
-    margin-top : -250px;
+    height : 300px;
+    margin-top : -150px;
     margin-left : -200px;
     display : none;
 }
@@ -16,37 +19,39 @@
     display : none;
 }
 #modal_layer_signup{
-    
+    text-align : center;
+    background-color: white;
+    border : 1px solid black;
+    box-shadow : 10px 10px 10px grey;
     position : fixed;
     top : 50%;
     left : 50%;
     overflow : hidden;
-    margin-top:-300px;
-    margin-left:-270px;
-    background-color : rgba(50,255,50,1);
+    margin-top:-200px;
+    margin-left:-290px;
+    /* background-color : rgba(50,255,50,1); */
     border:1px solid : black;
-    width : 540px;
-    height : 600px;
+    width : 580px;
+    height : 400px;
     z-index : 1;
     display : none;
 }
+.modal_table{
+  border : none;
+}
 .gnb{
-
     text-align : center;
-
 }
 .gnb-link{
     border-left : 1px solid gray;
     border-right : 1px solid gray;
     margin-right : 25px;
+    color : white;
     padding:0 10px;
 }
 #gnb-content{
   /*
-
-
   border : 1px solid black;
-
   background-color : #73d1f7;
 */
   font-size : 18px;
@@ -69,7 +74,10 @@
     text-align : right;
     position : fixed;
 }
+#session_id{
+  color : white;
 
+}
 body{
     margin-top : 0px;
 }

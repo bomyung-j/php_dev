@@ -1,13 +1,13 @@
 <?php
   date_default_timezone_set('Asia/Seoul'); //db에 저장될 시간대 설정
-  
+
   class pdo_bbs{
       private $db;
-      
+
       function __construct(){
         try{
           $this->db = new PDO("mysql:host=localhost;dbname=db명","관리자명","비밀번호");
-          
+
         }catch(PDOException $e){
             exit($e->getMessage());
         }
@@ -46,10 +46,10 @@
            order by num desc limit :start_num, :page_in_post");
           $query->bindValue(":start_num",$start_num,PDO::PARAM_INT);
           $query->bindValue(":page_in_post",$page_in_post,PDO::PARAM_INT);
-          
-          $query->execute(); 
+
+          $query->execute();
           $result = $query->fetchAll(PDO::FETCH_ASSOC);
-           
+
         }catch(PDOException $e){
             exit($e->getMessage());
         }
@@ -73,32 +73,59 @@
           $query = $this->db->prepare("update {$table} set hits = hits + 1 where num = :num");
           $query->bindValue(":num",$num,PDO::PARAM_INT);
           $result = $query->execute();
-      
+
         }catch(PDOException $e){
             exit($e->getMessage());
         }
-      
+
       }
+      //게시글 수정
+      function content_update_bbs($table,$num,$title,$content){
+          try{
+            $query = $this->db->prepare("update {$table} set title = :title, content = :content where num = :num");
+            $query->bindValue(":title",$title,PDO::PARAM_STR);
+            $query->bindValue(":content",$content,PDO::PARAM_STR);
+            $query->bindValue(":num",$num,PDO::PARAM_INT);
+            $query->execute();
+          }catch(PDOException $e){
+            exit($e->getMessage());
+          }
+
+      }
+      //게시글 삭제
       function content_delete_bbs($table,$num){
         try{
           $query = $this->db->prepare("delete from {$table} where num = :num");
           $query->bindValue(":num",$num,PDO::PARAM_INT);
           $query->execute();
-      
+
         }catch(PDOException $e){
             exit($e->getMessage());
         }
-      
+
       }
-      // function view_bbs(){
-      //   try{
-      // 
-      // 
-      //   }catch(PDOException $e){
-      //       exit($e->getMessage());
-      //   }
-      // 
-      // }
+      //최근글 보기 함수
+      function recent_bbs_print(){
+          try{
+            $query = $this->db->prepare("(select 'bbs_notice' as bbs_name, title, hits, reg_time, num from bbs_notice)
+                                        union all
+                                        (select 'bbs_free' as bbs_name, title, hits, reg_time, num from bbs_free)
+                                        union all
+                                        (select 'bbs_mountain' as bbs_name, title, hits, reg_time, num from bbs_mountain)
+                                        union all
+                                        (select 'bbs_study' as bbs_name, title, hits, reg_time, num from bbs_study)
+                                        union all
+                                        (select 'bbs_trip' as bbs_name, title, hits, reg_time, num from bbs_trip)
+                                         order by reg_time desc limit 0, 9");
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+          }catch(PDOException $e){
+              exit($e->getMessage());
+          }
+            return $result;
+
+      }
+
   }
 
 
