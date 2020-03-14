@@ -1,3 +1,4 @@
+/* header.php 에서 사용되는 스크립트*/
 // 문서가 시작되면 세션 체크 및 전역변수 선언
 $(document).ready(function(){
   //중복체크를 위한 플래그
@@ -42,7 +43,6 @@ var type_check = function(element){
   else if(element.id == "signid"){
     // console.log("아이디중복체크 시도하는중");
     signid = document.getElementById('signid').value;
-
     // console.log(element.innerHTML);
 
     if(regular_expression(signid,"id") == true && signid){
@@ -69,7 +69,6 @@ var type_check = function(element){
   }
   //패스워드 정규식 확인
   else if(element.id == "signpwd"){
-
     //console.log('비밀번호 정규식확인');
     var pw_boolean = regular_expression(element.value,"password");
     //console.log(pw_boolean);
@@ -103,7 +102,6 @@ var type_check = function(element){
     signpwd = document.getElementById('signpwd').value;
     signmail = document.getElementById('signmail').value;
     if(id_overlap_check != true || name_overlap_check != true || mail_overlap_check != true || pwd_overlap_check != true){
-
       //console.log(id_overlap_check);
       //console.log(name_overlap_check);
       //console.log(mail_overlap_check);
@@ -208,7 +206,6 @@ function modal_login_signup(element){
             document.getElementById('id_overlap_check_tag').innerHTML = "사용 가능한 아이디 입니다.";
             id_overlap_check = true;
             //console.log('성공');
-
 
           }else{
             document.getElementById('id_overlap_check_tag').innerHTML = "이미 사용 중인 아이디 입니다.";

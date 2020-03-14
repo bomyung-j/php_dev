@@ -1,4 +1,5 @@
 <?php
+  /* 게시판 메인 페이지*/
   $root = $_SERVER['DOCUMENT_ROOT'];
   define("PAGE_IN_POST",10); // 한페이지 안에 게시글 수
   require_once("{$root}/bbs/pdo_bbs.php");
@@ -56,7 +57,8 @@
           <td>작성일</td>
         </tr>
       </thead>
-    <?php foreach($page_content as $rows) :?>
+    <!-- 게시글 표시 항목-->  
+    <?php foreach($page_content as $rows) :?> 
       <tr>
 
         <td><?= $rows['num'] ?></td>
@@ -72,8 +74,14 @@
       </tr>
     <?php endforeach; ?>
     </table>
-        <a class="btn btn-default" href = "/bbs/bbs_main.php?bbs=<?=$table?>&page=1"><<</a>&nbsp;
-
+    <!-- 게시글 표시 끝-->
+    
+    <!-- 맨 앞 페이지 링크 << -->
+    <a class="btn btn-default" href = "/bbs/bbs_main.php?bbs=<?=$table?>&page=1"><<</a>&nbsp;
+    
+    <!-- 1 ~ 3 페이지 까지는 page_numbering을 3으로 지정함. 그리고 page_numbering 플마(2) 값 만큼 넘버 표시 -->
+    <!-- ex) page가 1이면 넘버 표시는 1(굵음, 선택됨) 2 3 4 5로 표시, 4일경우 2 3 4(굵음, 선택됨) 5 6 로 표시.-->
+    <!-- 페이지 넘버링 시작-->
       <?php for($num = $page_numbering-2;$num <= $page_numbering+2;$num++) :?>
         <?php if($num <= $page_count && $num > 0) : ?>
           <?php if($num == $page) : ?>
@@ -84,14 +92,18 @@
 
       <?php endif ?>
       <?php endfor ?>
-
-        <a class="btn btn-default" href ="bbs_main.php?bbs=<?=$table?>&page=<?= $page_count?>">>></a>
+      <!-- 맨 끝 페이지 표시-->
+      <a class="btn btn-default" href ="bbs_main.php?bbs=<?=$table?>&page=<?= $page_count?>">>></a>
+    <!-- 페이지 넘버링 끝 -->
+      
+        <!-- 권한에 따른 공지사항 작성 버튼 생성 여부-->
        <?php if($table != "bbs_notice" || ($table == "bbs_notice" && $access['level'] >0)) : ?>
         <form action = "/bbs/bbs_write.php">
           <input type="submit" value="글쓰기">
         </form>
       <?php endif ?>
       </div>
+      
   <div id="box-left">
 
   </div>

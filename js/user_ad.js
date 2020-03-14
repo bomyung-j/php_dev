@@ -1,4 +1,5 @@
-
+/* user_ad.js 에서 사용되는 함수*/
+/* 버튼을 누를경우 유저를 찾는 함수*/
 function find_user(){
   var user_name = document.getElementById('name').value; //검색할 유저이름
   var find_table = document.getElementById('find_table'); //값이 추가될 테이블 tbody

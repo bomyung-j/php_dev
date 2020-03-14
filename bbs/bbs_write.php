@@ -1,4 +1,5 @@
 <?php
+  /* 게시판 글쓰기 페이지*/
   $root = $_SERVER['DOCUMENT_ROOT'];
   require_once("{$root}/tools.php");
   require_once("{$root}/member/pdo_member.php");
@@ -24,7 +25,7 @@
     <div id="box-center">
           <b style="font-size : 25px;">글쓰기</b>
           <form action ="bbs_write_do.php" method="POST">
-            
+          <input type="hidden" name ="write_type" value ="write">
       <div class = "bbs-write-inner-style">
         <table>
             <tr>
@@ -36,7 +37,7 @@
                         <option value="bbs_mountain">등산</option>
                         <option value="bbs_trip">여행</option>
                         <option value="bbs_other">기타</option>
-                        <?php if($access['level'] > 0) :?>
+                        <?php if($access['level'] > 0) : //관리자 권한일경우 공지 선택가능?>
                           <option value="bbs_notice">공지사항</option>
                         <?php endif ?>
                       </select></td>

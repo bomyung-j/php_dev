@@ -1,4 +1,5 @@
 <?php
+  /* 게시글 삭제 처리 페이지*/
   $root = $_SERVER['DOCUMENT_ROOT'];
   header("Content-Type: application/json");
   require_once("{$root}/tools.php");

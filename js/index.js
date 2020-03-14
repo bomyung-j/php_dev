@@ -1,6 +1,7 @@
-$(document).ready(function(){
-myIndex = 0;
-carousel();
+/* index.php에서 사용하는 이미지 슬라이드 함수 */
+$(document).ready(function(){ //문서가 화면에 표시되면.
+myIndex = 0; 
+carousel(); //함수 시작
 });
 function carousel() {
     var i;

@@ -1,4 +1,5 @@
 <?php
+  /* 회원 정보 분실 페이지 */
   $root = $_SERVER['DOCUMENT_ROOT'];
 ?>
 

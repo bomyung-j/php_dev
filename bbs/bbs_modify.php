@@ -1,5 +1,5 @@
-
 <?php
+  /* 글 수정 작성 페이지 */
 $root = $_SERVER['DOCUMENT_ROOT'];
 require_once("{$root}/bbs/pdo_bbs.php");
 require_once("{$root}/tools.php");
@@ -25,7 +25,8 @@ if(request_session() != $result['name']){ // 어드민 권한도 가능하게 �
   </div>
   <div id="box-center">
       <b style="font-size : 25px;">글수정</b>
-    <form action ="bbs_modify_do.php" method="post">
+    <form action ="bbs_write_do.php" method="post">
+      <input type="hidden" name ="write_type" value ="modify">
       <input type="hidden" name="num" value="<?= $num ?>">
       <input type="hidden" name="bbs" value="<?= $table ?>">
       <div class="bbs-write-inner-style">

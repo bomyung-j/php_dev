@@ -1,21 +1,21 @@
 <?php
+  /* 회원 정보 분실 처리 페이지*/
   $root = $_SERVER['DOCUMENT_ROOT'];
   
   require_once("{$root}/member/pdo_member.php");
-  require_once("{$root}/mail/send_mail.php");
+  require_once("{$root}/mail/send_mail.php"); 
   require_once("{$root}/tools.php");
   
   $db = new pdo_member();
   
-//  var_dump($_POST);
-  $mail = $_POST['forget_mail'];
-  $option = $_POST['forget_option'];
-  $result = $db->member_check("mail",$mail);
+  $mail = $_POST['forget_mail']; //메일 주소 저장 
+  $option = $_POST['forget_option']; //비밀번호를 찾을지 아이디를 찾을지 선택한 옵션값 저장
+  $result = $db->member_check("mail",$mail); //메일값을 이용해 데이터 찾아옴.
   
-  if(!$result)
+  if(!$result) // 데이터가 없을경우 뒤로가기
     msg_backpg('해당하는 이메일이 없습니다.');
     
-  
+  /* 옵션값을 이용 */
   if($option == "id"){
     $msg = "찾으시는 아이디는 {$result['id']}입니다."; //아이디 전송
   }else if($option == "pwd"){

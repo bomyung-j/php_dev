@@ -1,4 +1,5 @@
 <?php
+  /* 마이페이지 */
   $root = $_SERVER['DOCUMENT_ROOT'];
   require_once("{$root}/tools.php");
   require_once("{$root}/member/pdo_member.php");

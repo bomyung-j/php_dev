@@ -1,4 +1,5 @@
 <?php
+  /* 관리자 페이지 */
   $root = $_SERVER['DOCUMENT_ROOT'];
   require_once("{$root}/tools.php");
   require_once("{$root}/member/pdo_member.php");
@@ -74,7 +75,6 @@
         <?php endforeach?>
       </table> 
       <br>
-      <!-- <button type="button" class="btn btn-danger" onclick="member_delete();">삭제 (버튼)</button> -->
       <input class="btn btn-danger" type="submit" value="삭제하기">
     </form>
   </div>
